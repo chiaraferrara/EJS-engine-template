@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contatti template engine</title>
+  </head>
+  <style>
+    body {
+      margin: 0px;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    h1 {
+      padding: 0%;
+      margin: 0;
+    }
+    ul {
+      margin-inline: auto;
+      width: max-content;
+    }
+  </style>
+  <body>
+    <%- include(`../../includes/header.ejs`) %>
+    <main>
+      <% if (contacts.length > 0) { %>
+      <ul>
+        <% for (let contact of contacts){ %>
+
+        <li>
+          <%= contact.first_name%> <%= contact.last_name %> <br /><%=
+          contact.email %><br /><%= contact.phone_number %>
+        </li>
+        <br />
+        <% } %>
+      </ul>
+      <% } else { %>
+      <h1>Nessun contatto trovato</h1>
+      <% } %>
+    </main>
+    <%- include(`../../includes/footer.ejs`) %>
+  </body>
+</html>
